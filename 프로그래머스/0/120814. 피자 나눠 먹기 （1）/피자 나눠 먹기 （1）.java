@@ -1,17 +1,10 @@
 class Solution {
     public int solution(int n) {
-        int answer = 0;
-        int val = n%7;
-        
-        //n%7이  0이면 -> n/7개
-        //n%7이 !0이면 -> 1개 이거나 n/7+1개이거나
+        int answer = (n%7==0) ? n/7 : n/7 + 1;
 
-        if(val == 0) {
-            answer = n/7;
-        } else if(val != 0) {
-            if(n<7) answer = 1;
-            answer = n/7 + 1;
-        }
         return answer;
     }
 }
+
+//더 간단한 코드.
+//7인 미만은 어차피 나눠도 몫이 0이라서 한번더 if문으로 체크할 필요x
