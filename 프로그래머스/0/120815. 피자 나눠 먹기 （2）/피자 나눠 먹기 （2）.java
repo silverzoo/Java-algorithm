@@ -1,19 +1,11 @@
 class Solution {
     public int solution(int n) {
-        //n과 6의 최소공배수 = 필요한 피자조각수
-        int lcm = getLcm(n,6);
-        int answer = lcm/6;
+        int answer = 1;
+        
+        //몫이 남느냐 안남느냐로 피자 수가 충분한지 체크하는 방식.
+        while((answer*6)%n != 0) {
+            answer++;
+        }
         return answer;
-    }
-    
-    //최소공배수 구하기
-    public int getLcm(int a, int b) {
-        return (a*b) / getGcd(a,b);
-    }
-    
-    //최대공약수 구하기
-    public int getGcd(int a, int b) {
-        if(b==0) return a;
-        return getGcd(b, (a%b));
     }
 }
