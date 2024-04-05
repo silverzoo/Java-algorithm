@@ -13,4 +13,4 @@ class Solution {
         }
         return max * prevMax;
     }
-}
+} //정석대로 풀어보기.
