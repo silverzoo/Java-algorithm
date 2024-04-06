@@ -1,24 +1,7 @@
 class Solution {
     public String solution(String my_string) {
-        char[] vowel = {'a','e','i','o','u'};
-        char[] stringArr = my_string.toCharArray();
-        String answer = "";
-        
-        for(int i = 0; i < stringArr.length; i++) {
-            for(int j = 0; j < vowel.length; j++) {
-                if (stringArr[i] == vowel[j]) {
-                    stringArr[i] = 'X'; //소문자와 공백으로만 이루어져있다는 조건이란 전제하.
-                    break;
-                }
-            }
-        }
-        
-        for(int i = 0; i < stringArr.length; i++) {
-            if (stringArr[i] != 'X') {
-                answer += stringArr[i];
-            }
-        }
-        
-        return answer;
+        return my_string.replaceAll("[aeiou]","");
     }
-}
+} 
+//replace함수도 있지만 replaceAll을 쓰면 정규식 사용이 가능하다.
+//[aeiou]는 정규식. []안의 범위 중 한 문자만을 선택한다.
