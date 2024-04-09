@@ -1,16 +1,13 @@
 class Solution {
     public long solution(String numbers) {
-        numbers = numbers.replaceAll("zero","0");
-        numbers = numbers.replaceAll("one","1");
-        numbers = numbers.replaceAll("two","2");
-        numbers = numbers.replaceAll("three","3");
-        numbers = numbers.replaceAll("four","4");
-        numbers = numbers.replaceAll("five","5");
-        numbers = numbers.replaceAll("six","6");
-        numbers = numbers.replaceAll("seven","7");
-        numbers = numbers.replaceAll("eight","8");
-        numbers = numbers.replaceAll("nine","9");
+        String[] numbersArr = {"zero", "one", "two", "three", "four",
+                               "five", "six", "seven", "eight", "nine"};
+        
+        for(int i = 0; i < 10; i++) {
+            numbers = numbers.replace(numbersArr[i], String.valueOf(i));
+        }
         
         return Long.parseLong(numbers);
     }
 }
+//원래 풀고 싶었던 방식. 배열에 담아서 어떻게 처리할 수 있지 않을까..?
