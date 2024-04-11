@@ -4,15 +4,10 @@ class Solution {
         
         for(int i = 0; i < quiz.length; i++) {
             String[] quizArr = quiz[i].split(" ");
+            int result = Integer.parseInt(quizArr[0]) + Integer.parseInt(quizArr[2]) * ((quizArr[1].equals("+"))? 1 : -1);
             
-            for(int j = 0; j < quizArr.length; j++) {
-                if(quizArr[j].equals("-")) {
-                    answer[i] = (Integer.parseInt(quizArr[j-1]) - Integer.parseInt(quizArr[j+1]) == Integer.parseInt(quizArr[quizArr.length-1]))? "O" : "X";
-                } else if(quizArr[j].equals("+")) {
-                    answer[i] = (Integer.parseInt(quizArr[j-1]) + Integer.parseInt(quizArr[j+1]) == Integer.parseInt(quizArr[quizArr.length-1]))? "O" : "X";
-                }
-            }
+            answer[i] = (result == Integer.parseInt(quizArr[4])) ? "O" : "X";
         }
         return answer;
     }
-}
+} // 더 간단하고 직관적인 코드.
