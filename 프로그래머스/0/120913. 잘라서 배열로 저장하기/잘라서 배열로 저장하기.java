@@ -1,12 +1,8 @@
 class Solution {
     public String[] solution(String my_str, int n) {
-        int length = (int)Math.ceil((double)my_str.length()/n);
-        String[] answer = new String[length];
-        int index = 0;
         
-        for(int i = 0; i < my_str.length(); i += n) {
-            answer[index++] = my_str.substring(i, Math.min(i+n, my_str.length()));
-        }
+        String[] answer = my_str.split("(?<=\\G.{" + n + "})");
         return answer;
     }
 }
+//String.split()은 특정 문자열 외에도 정규표현식으로 특정 길이만큼 자를 수 있다.
