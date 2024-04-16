@@ -1,7 +1,7 @@
 class Solution {
     public int solution(String my_string) {
         int answer = 0;
-        String[] str = my_string.replaceAll("[^0-9]"," ").split(" ");
+        String[] str = my_string.split("[^0-9]");
         
         for(String s : str) {
             answer += (s.isEmpty()) ? 0 : Integer.parseInt(s);
