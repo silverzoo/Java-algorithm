@@ -1,4 +1,6 @@
 -- 코드를 작성해주세요
 SELECT COUNT(ID) AS FISH_COUNT
 FROM FISH_INFO
-WHERE LEFT(TIME, 4) = 2021
+WHERE YEAR(TIME) = 2021
+
+-- YEAR(date) : DATE타입데이터의 년도를 반환한다.
