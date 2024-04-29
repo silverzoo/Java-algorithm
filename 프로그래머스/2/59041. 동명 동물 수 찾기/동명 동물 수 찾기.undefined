@@ -5,3 +5,11 @@ GROUP BY NAME
 HAVING COUNT(*) >= 2
 AND NAME IS NOT NULL
 ORDER BY NAME
+
+-- NAME IS NOT NULL 조건이 없는 경우,
+
+-- 1. SELECT NAME, COUNT(*) GROUP BY NAME
+-- NAME의 고유한 값을 기준으로 NULL값 포함해서 몇 개의 데이터가 있는지 계산한다.
+
+-- 2. SELECT NAME, COUNT(NAME) GROUP BY NAME
+-- 위와 같지만 NULL값은 제외함
