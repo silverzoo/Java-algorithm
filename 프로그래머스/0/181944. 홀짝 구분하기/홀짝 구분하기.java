@@ -5,10 +5,7 @@ public class Solution {
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
         
-        if(n%2 == 0) {
-            System.out.println(n + " is even");
-        } else {
-            System.out.println(n + " is odd");
-        }
+        //문자열이 섞인 출력에서 삼항연산자의 활용
+        System.out.println(n + " is " + ((n%2 == 0)? "even" : "odd"));
     }
 }
