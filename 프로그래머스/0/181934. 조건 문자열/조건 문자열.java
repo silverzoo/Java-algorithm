@@ -1,20 +1,14 @@
 class Solution {
     public int solution(String ineq, String eq, int n, int m) {
-        int answer = 0;
+        boolean flag = false;
         
-        if(ineq.equals(">")) {
-            if(eq.equals("=")) {
-                answer = (n >= m)? 1 : 0;
-            } else {
-                answer = (n > m)? 1 : 0;
-            }
-        } else {
-            if(eq.equals("=")) {
-                answer = (n <= m)? 1 : 0;
-            } else {
-                answer = (n < m)? 1 : 0;
-            }
-        }
-        return answer;
+        if(">".equals(ineq) && n > m)
+            flag = true;
+        if("<".equals(ineq) && n < m)
+            flag = true;
+        if("=".equals(eq) && n == m)
+            flag = true;
+        
+        return flag ? 1 : 0;
     }
 }
