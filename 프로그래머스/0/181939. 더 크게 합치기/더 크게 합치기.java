@@ -1,7 +1,8 @@
 class Solution {
     public int solution(int a, int b) {
-        int first = Integer.parseInt(Integer.toString(a)+Integer.toString(b));
-        int second = Integer.parseInt(Integer.toString(b)+Integer.toString(a));
+        //""+ 과의 연산으로 쉽게 toString() 하기.
+        int first = Integer.parseInt(""+a+b);
+        int second = Integer.parseInt(""+b+a);
         return (first >= second) ? first : second;
     }
 }
