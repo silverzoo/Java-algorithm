@@ -1,14 +1,17 @@
 class Solution {
     public String solution(int[] numLog) {
-        StringBuffer answer = new StringBuffer();
+        String answer = "";
         
-        for(int i = numLog.length-1; i >= 1; i--) {
+        for(int i = 1; i < numLog.length; i++) {
             int minus = numLog[i] - numLog[i-1];
-            if(minus == 1) answer.append("w");
-            else if(minus == -1) answer.append("s");
-            else if(minus == 10) answer.append("d");
-            else if(minus == -10) answer.append("a");
+            answer += switch(minus) {
+                    case 1 -> "w";
+                    case -1 -> "s";
+                    case 10 -> "d";
+                    case -10 -> "a";
+                    default -> "";
+            };
         }
-        return answer.reverse().toString();
+        return answer;
     }
 }
