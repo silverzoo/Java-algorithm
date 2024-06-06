@@ -5,10 +5,7 @@ public class Solution {
         Scanner sc = new Scanner(System.in);
         String str = sc.next();
         int n = sc.nextInt();
-        String a ="";
-        for(int i = 0; i < n; i++) {
-            a += str;
-        }
-        System.out.print(a);
+        
+        System.out.print(str.repeat(n));
     }
 }
