@@ -1,21 +1,24 @@
+import java.util.Stack;
+
 class Solution {
     boolean solution(String s) {
-        int cnt = 0;
+        Stack<String> stack = new Stack<>();
         
-        //)이면 cnt -= 1 => cnt < 0 이거나 cnt > 0 이면 false
-        //(이면 cnt += 1 => cnt == 0 이면 true
         for(String str : s.split("")) {
-            cnt += (str.equals(")"))? -1 : 1;
-            if(cnt < 0) return false;
+            if(str.equals("(")) {
+                stack.push("(");
+            } else if(str.equals(")")) {
+                //해당 if조건을 걸지 않으면 EmptyStackException 컴파일에러가 발생한다.
+                if(stack.isEmpty()) {
+                    return false;
+                }
+                stack.pop();
+            }
         }
-
-        return (cnt == 0)? true : false;
+        return stack.isEmpty();
     }
 }
 
-
-
-
-        //처음의 아이디어 :
-        //)로 시작하면 false
-        //(로 시작하면 연속된 개수를 세고 그 개수만큼 )가 연속으로 나와야 함 그렇지 않으면 false
+//stack.isEmpty() 와 stack.emtpy()는 동일한 기능이다. 비어있으면.true를 반환.
+//empty()는 스택 클래스의 메서드이지만,
+//isEmpty()는 Collection 인터페이스에 정의된 메서드이므로 List,Set,Queue 등 여러 데이터 구조에도 사용가능한 메서드다.
