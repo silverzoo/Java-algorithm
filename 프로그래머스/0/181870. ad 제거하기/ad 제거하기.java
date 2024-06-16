@@ -8,6 +8,8 @@ class Solution {
                 answer.add(str);
             }
         }
-        return answer.toArray(new String[answer.size()]);
+        return answer.toArray(String[]::new);
     }
 }
+
+//String[]::new 의 의미? 아직 못 찾음;;
