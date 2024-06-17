@@ -1,15 +1,7 @@
 class Solution {
     public int solution(String myString, String pat) {
-        StringBuilder newString = new StringBuilder();
+        myString = myString.replace("A","a").replace("B","A").replace("a","B");
         
-        for(String str : myString.split("")) {
-            if(str.equals("A")) {
-                newString.append("B");
-            } else {
-                newString.append("A");
-            }
-        }
-        
-        return (newString.toString().contains(pat))? 1 : 0;
+        return (myString.contains(pat))? 1 : 0;
     }
-}
+} // String클래스의 replace함수를 기억하자
