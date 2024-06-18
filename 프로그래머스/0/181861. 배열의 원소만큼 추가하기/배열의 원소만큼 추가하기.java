@@ -1,18 +1,16 @@
-import java.util.ArrayList;
-
 class Solution {
     public int[] solution(int[] arr) {
-        ArrayList<Integer> list = new ArrayList();
-        
+        int sum = 0;
         for(int i : arr) {
-            for(int k = 0; k < i; k++)
-                list.add(i);
+            sum += i;
         }
         
-        int[] answer = new int[list.size()];
-        
-        for(int j = 0; j < list.size(); j++) {
-            answer[j] = list.get(j);
+        int[] answer = new int[sum];
+        int idx = 0;
+        for(int j : arr) {
+            for(int k = 0; k < j; k++) {
+                answer[idx++] = j;
+            }
         }
         
         return answer;
