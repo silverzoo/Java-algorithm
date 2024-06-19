@@ -2,12 +2,13 @@ import java.util.Arrays;
 
 class Solution {
     public int[] solution(int[] num_list) {
-        int[] answer = new int[5];
         Arrays.sort(num_list);
-        
-        for(int i = 0; i < 5; i++) {
-            answer[i] = num_list[i];
-        }
-        return answer;
+
+        return Arrays.copyOf(num_list, 5);
     }
 }
+
+//배열을 복사해서 특정 길이까지 출력하는 함수
+        
+//Arrays.copyOf(원본배열,길이)
+//Arrays.copyOfRange(원본배열,시작인덱스,끝인덱스)
