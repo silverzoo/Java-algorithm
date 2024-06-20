@@ -8,11 +8,9 @@ class Solution {
             list.add(i);
         }
         
-        for(int i : arr) {
-            for(int j : delete_list) {
-                //remove()는 Object(객체)를 매개변수로 받으므로 :Integer타입으로 받아야한다.
-                if(i == j) list.remove(Integer.valueOf(i));
-            }
+        for(int i : delete_list) {
+            //remove()는 Object(객체)를 매개변수로 받으므로 :Integer타입으로 받아야한다.
+            list.remove((Integer)i);
         }
 
         int[] answer = new int[list.size()];
