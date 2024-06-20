@@ -12,4 +12,4 @@ class Solution {
     }
 }
 
-//String[]::new 의 의미? 아직 못 찾음;;
+//String[]::new 의 의미? 아직 못 찾음;;-> java11부터 사용가능한 문법. String[]::new = new String[answer.size()]
