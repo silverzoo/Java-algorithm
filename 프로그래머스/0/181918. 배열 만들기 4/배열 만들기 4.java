@@ -1,29 +1,24 @@
-import java.util.ArrayList;
+import java.util.Stack;
 
 class Solution {
     public int[] solution(int[] arr) {
-        ArrayList<Integer> list = new ArrayList();
-        
-        for(int i = 0; i < arr.length; i++) {
-            
-            if(list.isEmpty()) {
-                list.add(arr[i]);
-            } else {
-                if(list.get(list.size()-1)< arr[i]) {
-                    list.add(arr[i]);
-                } else {
-                    list.remove(list.size()-1);
-                    i--; //i에 1을 더하라는 조건이 없다.
-                }
+        Stack<Integer> stack = new Stack<>();
+
+        for (int num : arr) {
+            while(!stack.isEmpty() && stack.peek() >= num) {
+                stack.pop();
             }
+            stack.push(num);
         }
-        
-        int[] stk = new int[list.size()];
-        
-        for(int i = 0; i < list.size(); i++) {
-            stk[i] = list.get(i);
+
+        int[] stk = new int[stack.size()];
+        for(int i = 0; i < stack.size(); i++) {
+            stk[i] = stack.get(i);
+            //stack.pop()은 후입선출, stack.get(i)은 특정인덱스
         }
         
         return stk;
     }
 }
+
+//stack 구조로 풀기
