@@ -1,11 +1,9 @@
+import java.util.Arrays;
+
 class Solution {
     public int solution(int[] date1, int[] date2) {
-        int answer = 0;
-        for(int i = 0; i < date1.length; i++) {
-            if(date1[i] > date2[i]) break;
-            if(date1[i] < date2[i]) return answer = 1;
-            if(date1[i] == date2[i]) continue;
-        }
-        return answer;
+        return Arrays.compare(date1, date2) < 0 ? 1 : 0;
     }
 }
+//Arrays.compare(int[] a, int[] b)
+//a < b 이면 양의 정수 반환 a == b 이면 0, a > b 이면 음의 정수 반환
