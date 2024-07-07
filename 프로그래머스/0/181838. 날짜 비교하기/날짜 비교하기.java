@@ -4,9 +4,7 @@ class Solution {
         for(int i = 0; i < date1.length; i++) {
             if(date1[i] > date2[i]) break;
             if(date1[i] < date2[i]) return answer = 1;
-            if(date1[i] == date2[i]) {
-                continue;
-            }
+            if(date1[i] == date2[i]) continue;
         }
         return answer;
     }
