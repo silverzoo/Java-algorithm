@@ -1,4 +1,4 @@
-package ch02_array.practice;
+package ch02_array;
 
 import java.util.Scanner;
 

@@ -1,4 +1,4 @@
-package ch02_array.practice;
+package ch02_array;
 
 class PrimeNumber3 {
     public static void main(String[] args) {
