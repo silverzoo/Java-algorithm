@@ -66,6 +66,7 @@ class PhysicalExamination {
 
         System.out.println("\n시력 분포");
         for (int i = 0; i < VMAX; i++)
+            //소수점 몇자리까지 보여줄 것인지 .1이면 1자리까지
             System.out.printf("%3.1f～: %2d명\n", i / 10.0, vdist[i]);
     }
 }

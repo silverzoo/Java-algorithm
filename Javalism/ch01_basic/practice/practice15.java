@@ -16,6 +16,10 @@ public class practice15 {
         spira(leng);
     }
 
+    //여백과 *을 나누어 생각했을 때,
+    //중앙을 기준으로 반으로 나누어서 오른쪽여백은 고려하지 않는다.
+    //왼쪽 여백은 총 자릿수에서 *의 개수를 뺀 만큼만 차지하고, -((i-1)+1)인 이유는 for문 안의 변수 i가 1부터 시작 하기 때문.
+    //*은 1,3,5.. 홀수씩 증가한다.
     static void spira(int n) {
         for(int i = 1; i <= n; i++) {
             System.out.print(" ".repeat(n-((i-1)+1)));
