@@ -12,9 +12,9 @@ public class Practice01 {
         return fact;
     }*/
 
-    //4-1예제 그대로 가져와 n > 0 인 조건문 안의 로직을 감소 반복문과 곱셉 할당연산자로 구현
+    //5-1예제 그대로 가져와 n > 0 인 조건문 안의 로직을 감소 반복문과 곱셉 할당연산자로 구현
     static int factorial(int n) {
-        if (n > 0) {
+        if (n > 1) {
             for(int i = n-1; i > 0; i--)
                 n *= i;
             return n;

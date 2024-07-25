@@ -17,7 +17,7 @@ public class Practice05_6 {
                 System.out.println(n);
                 recur(n - 2);
                 //로직 처리 후 기록을 위해 문자열을 메모
-                memo[n + 1] = memo[n] + n + "\n" + memo[n - 1];        // 메모화
+                memo[n + 1] = STR."\{memo[n]}\{n}\n\{memo[n - 1]}";        // 메모화
             } else {
                 memo[n + 1] = "";     // 메모화 : recur(0)과 recur(-1)은 빈 문자열
             }

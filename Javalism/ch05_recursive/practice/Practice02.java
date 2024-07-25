@@ -3,17 +3,18 @@ package ch05_recursive.practice;
 import java.util.Scanner;
 
 public class Practice02 {
+
+    //1. x가 y에 나누어 떨어지지 않는다면 공약수 성립x
+    //2. x와 y 나눗셈의 나머지(x % y)와 y, 두 수의 나눗셈을 나누어 떨어질 때 까지 반복
+    //이때 나누어 떨어진 식의 피연산자 중 0이 아닌 수가 최대공약수가 된다.
+    //ex) x= 12 y= 5/ x= 5 y= 2/ x= 2 y= 1/ x= 1 y= 0 -> 최대 공약수: 1
     static int gcd(int x, int y) {
-//        if (y == 0)
-//            return x;
-//        else {
-            while(y > 0) {
-                int tmp = y;
-                y = x % y;
-                x = tmp;
-            }
-            return x;
-//        }
+        while(y > 0) {
+            int tmp = y;
+            y = x % y;
+            x = tmp;
+        }
+        return x;
     }
 
     public static void main(String[] args) {
