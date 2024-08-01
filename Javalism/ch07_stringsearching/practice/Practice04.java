@@ -4,12 +4,12 @@ import java.util.Scanner;
 
 class Practice04 {
     static int bmMatch(String txt, String pat) {
-        int pt;                           // txt를 따라가는 커서
-        int pp;                           // pat를 따라가는 커서
-        int txtLen = txt.length();        // txt의 문자 개수
-        int patLen = pat.length();        // pat의 문자 개수
+        int pt;
+        int pp;
+        int txtLen = txt.length();
+        int patLen = pat.length();
         int[] skip = new int[Character.MAX_VALUE + 1];
-        int count = 0;   // 비교 회수
+        int count = 0;
         int k = -1;
 
         // skip 테이블 작성
@@ -29,7 +29,7 @@ class Practice04 {
                 k = pt - pp;
             }
             for (int i = 0; i < txt.length(); i++)
-                System.out.print(txt.charAt(i) + " ");
+                System.out.print(STR."\{txt.charAt(i)} ");
             System.out.println();
 
             for (int i = 0; i < pt * 2 + 4; i++)
@@ -41,15 +41,19 @@ class Practice04 {
                 System.out.print(" ");
 
             for (int i = 0; i < pat.length(); i++)
-                System.out.print(pat.charAt(i) + " ");
+                System.out.print(STR."\{pat.charAt(i)} ");
             System.out.println();
             System.out.println();
             count++;
 
+
             while (txt.charAt(pt) == pat.charAt(pp)) {
 
-                if (pp == 0)
-                    return pt;         // 검색 성공
+                // 검색 성공
+                if (pp == 0) {
+                    System.out.printf("비교를 %d회 했습니다.\n", count);
+                    return pt;
+                }
                 pp--;
                 pt--;
                 if (k == pt - pp)
@@ -59,7 +63,7 @@ class Practice04 {
                     k = pt - pp;
                 }
                 for (int i = 0; i < txt.length(); i++)
-                    System.out.print(txt.charAt(i) + " ");
+                    System.out.print(STR."\{txt.charAt(i)} ");
                 System.out.println();
 
                 for (int i = 0; i < pt * 2 + 4; i++)
@@ -71,14 +75,15 @@ class Practice04 {
                     System.out.print(" ");
 
                 for (int i = 0; i < pat.length(); i++)
-                    System.out.print(pat.charAt(i) + " ");
+                    System.out.print(STR."\{pat.charAt(i)} ");
                 System.out.println();
                 System.out.println();
                 count++;
             }
             pt += skip[txt.charAt(pt)];
         }
-        return -1;		                          // 검색 실패
+        System.out.printf("비교를 %d회 했습니다.\n", count);
+        return -1;
     }
 
     public static void main(String[] args) {

@@ -22,7 +22,7 @@ public class Practice03 {
                 k = pt - pp;
             }
             for (int i = 0; i < txt.length(); i++)
-                System.out.print(txt.charAt(i) + " ");
+                System.out.print(STR."\{txt.charAt(i)} ");
             System.out.println();
 
             for (int i = 0; i < pt * 2 + 4; i++)
@@ -34,7 +34,7 @@ public class Practice03 {
                 System.out.print(" ");
 
             for (int i = 0; i < pat.length(); i++)
-                System.out.print(pat.charAt(i) + " ");
+                System.out.print(STR."\{pat.charAt(i)} ");
             System.out.println();
             System.out.println();
             count++;
@@ -57,7 +57,7 @@ public class Practice03 {
                 k = pt - pp;
             }
             for (int i = 0; i < txt.length(); i++)
-                System.out.print(txt.charAt(i) + " ");
+                System.out.print(STR."\{txt.charAt(i)} ");
             System.out.println();
 
             for (int i = 0; i < pt * 2 + 4; i++)
@@ -69,7 +69,7 @@ public class Practice03 {
                 System.out.print(" ");
 
             for (int i = 0; i < pat.length(); i++)
-                System.out.print(pat.charAt(i) + " ");
+                System.out.print(STR."\{pat.charAt(i)} ");
             System.out.println();
             System.out.println();
             count++;

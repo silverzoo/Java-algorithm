@@ -41,7 +41,7 @@ public class BFmatch {
 
             System.out.println(STR."\{idx+1}번째 문자부터 일치합니다");
             System.out.println(STR."텍스트: \{s1}");
-            System.out.printf(String.format("패턴: %%%ds\n", len), s2);
+            System.out.printf(String.format("패 턴: %%%ds", len), s2);
         }
 
 

@@ -1,5 +1,6 @@
 package ch07_stringsearching.practice;
 
+import java.io.UnsupportedEncodingException;
 import java.util.Scanner;
 
 public class Practice01 {
@@ -7,7 +8,7 @@ public class Practice01 {
         int pt = 0; //txt 커서
         int pp = 0; //pat 커서
         int cnt = 0; //비교횟수
-        int k = -1;
+        int k = -1; //두 문자열의 위치 차이 기록
 
         while (pt != txt.length() && pp != pat.length()) {
             if (k == pt - pp)
@@ -17,7 +18,7 @@ public class Practice01 {
                 k = pt - pp;
             }
             for (int i = 0; i < txt.length(); i++)
-                System.out.print(txt.charAt(i) + " ");
+                System.out.print(STR."\{txt.charAt(i)} ");
             System.out.println();
 
             for (int i = 0; i < pt * 2 + 4; i++)
@@ -29,7 +30,7 @@ public class Practice01 {
                 System.out.print(" ");
 
             for (int i = 0; i < pat.length(); i++)
-                System.out.print(pat.charAt(i) + " ");
+                System.out.print(STR."\{pat.charAt(i)}");
             System.out.println();
             System.out.println();
             cnt++;
@@ -70,6 +71,7 @@ public class Practice01 {
             System.out.println(STR."\{idx + 1}번째 문자부터 일치합니다.");
             System.out.println(STR."텍스트 : \{s1}");
             System.out.printf(String.format("패 턴 : %%%ds\n", len), s2);
+            //System.out.printf("패 턴 : %5s", "de"); %%d -> 5(len 값 할당)
         }
     }
 }
