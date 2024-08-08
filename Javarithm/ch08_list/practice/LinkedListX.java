@@ -65,21 +65,40 @@ public class LinkedListX<E> {
         }
     }
 
-    //--- 꼬리 노드를 삭제 ---//
+    //--- 꼬리노드 삭제 ---//
+//    public void removeLast() {
+//        if (head != null) {
+//            if (head.next == null)		           // 노드가 하나뿐이면
+//                removeFirst();					// 머리 노드를 삭제
+//            else {
+//                Node<E> ptr = head;			// 스캔 중인 노드
+//                Node<E> pre = head;			// 스캔 중인 노드의 앞쪽 노드
+//
+//                while (ptr.next != null) {
+//                    pre = ptr;
+//                    ptr = ptr.next;
+//                }
+//                pre.next = null;				// pre는 삭제 후의 꼬리 노드
+//                tail = crnt = pre;
+//            }
+//        }
+//    }
+
+
+    // 진영님 풀이 코드
     public void removeLast() {
         if (head != null) {
-            if (head.next == null)		           // 노드가 하나뿐이면
-                removeFirst();					// 머리 노드를 삭제
+            if (head.next == null)             // 노드가 하나만 있으면
+                removeFirst();                 // 머리노드 삭제
             else {
-                Node<E> ptr = head;			// 스캔 중인 노드
-                Node<E> pre = head;			// 스캔 중인 노드의 앞쪽 노드
+                Node<E> ptr = head;            // 스캔 중인 노드
 
-                while (ptr.next != null) {
-                    pre = ptr;
+                // 교안과 다르게 pre를 사용할 필요 없음
+                while(!ptr.next.equals(tail)){
                     ptr = ptr.next;
                 }
-                pre.next = null;				// pre는 삭제 후의 꼬리 노드
-                tail = crnt = pre;
+                ptr.next = null;
+                tail = ptr;
             }
         }
     }
@@ -142,33 +161,50 @@ public class LinkedListX<E> {
         }
     }
 
-    //---【연습8-1】 컴퍼레이터c로 서로 같은 노드를 찾아 모든 노드를 삭제 ---//
-    public void purge(Comparator<? super E> c) {
+    // 진영님 풀이 코드
+    public void purge(Comparator<? super E> c){
         Node<E> ptr = head;
 
-        while (ptr != null) {
-            int count = 0;
-            Node<E> ptr2 = ptr;
-            Node<E> pre = ptr;
-
-            while (pre.next != null) {
-                ptr2 = pre.next;
-                if (c.compare(ptr.data, ptr2.data) == 0) {
-                    pre.next = ptr2.next;
-                    count++;
-                } else
-                    pre = ptr2;
+        while(ptr != null){
+            Node<E> aft = ptr.next;
+            while(aft != null){
+                if(c.compare(ptr.data, aft.data) == 0){
+                    remove(aft);
+                }
+                aft = aft.next;
             }
-            if (count == 0)
-                ptr = ptr.next;
-            else {
-                Node<E> temp = ptr;
-                remove(ptr);
-                ptr = temp.next;
-            }
+            ptr = ptr.next;
         }
-        crnt = head;
+
     }
+
+//    //---【연습8-1】 컴퍼레이터c로 서로 같은 노드를 찾아 모든 노드를 삭제 ---//
+//    public void purge(Comparator<? super E> c) {
+//        Node<E> ptr = head;
+//
+//        while (ptr != null) {
+//            int count = 0;
+//            Node<E> ptr2 = ptr;
+//            Node<E> pre = ptr;
+//
+//            while (pre.next != null) {
+//                ptr2 = pre.next;
+//                if (c.compare(ptr.data, ptr2.data) == 0) {
+//                    pre.next = ptr2.next;
+//                    count++;
+//                } else
+//                    pre = ptr2;
+//            }
+//            if (count == 0)
+//                ptr = ptr.next;
+//            else {
+//                Node<E> temp = ptr;
+//                remove(ptr);
+//                ptr = temp.next;
+//            }
+//        }
+//        crnt = head;
+//    }
 
     //---【연습8-2】 머리부터 n개 뒤 노드의 데이터에 대한 참조를 반환 ---//
     public E retrieve(int n) {
