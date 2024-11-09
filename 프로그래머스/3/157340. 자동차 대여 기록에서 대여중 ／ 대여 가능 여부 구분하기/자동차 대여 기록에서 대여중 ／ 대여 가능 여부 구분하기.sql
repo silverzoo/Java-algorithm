@@ -1,0 +1,7 @@
+-- 코드를 입력하세요
+SELECT CAR_ID, IF(MAX('2022-10-16' BETWEEN START_DATE AND END_DATE), '대여중','대여 가능') AS AVAILABILITY
+FROM CAR_RENTAL_COMPANY_RENTAL_HISTORY
+GROUP BY CAR_ID
+ORDER BY CAR_ID DESC
+
+-- MAX함수는 TRUE, FALSE로 나오는 값 중 TRUE를 최대값으로 인식하기 때문에 대여중(TRUE), 대여가능(FALSE)인 것 중 하나라도 대여중이라면 대여중인 것으로 출력.
